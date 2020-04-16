@@ -5,15 +5,17 @@ import { Hello } from './Hello';
 import { useFetch } from './useFetch';
 
 const App = () => {
-  const [{count, count2, randomCount}, setCount] = useState({count: 10, count2: 20, randomCount: 10});
+  const [{count, count2, randomCount}, setCount] = useState({count: JSON.parse(localStorage.getItem("count")), count2: 20, randomCount: 10});
   const [values, handleChange] = useForm({email:"", password: ""});
   const [showHello, setShowHello] = useState(true);
   const {apiData, loading} = useFetch(`http://numbersapi.com/${randomCount}/trivia`)
 
-
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count))
+  }, [count])
   return( 
   <div>
-    
+
     <div className="header">
     <h1>React Hooks practice</h1>
     </div>
