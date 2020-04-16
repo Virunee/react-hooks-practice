@@ -9,7 +9,7 @@ const App = () => {
   const [showHello, setShowHello] = useState(true);
 
 
-  return( <div>
+  return( <div class="container">
     <h2>useState Counter example</h2>
     <p>Current count1 is: {count}</p>
     <p>Current count2 is: {count2}</p>
