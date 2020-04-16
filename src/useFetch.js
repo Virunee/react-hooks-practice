@@ -12,7 +12,7 @@ export const useFetch = url => {
         .then(responseText => {
         setState({apiData: responseText, loading: false})
       })
-    }, [url])
+    }, [url, setState])
 
     return state;
   }

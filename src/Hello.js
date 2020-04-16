@@ -10,5 +10,5 @@ export const Hello = () => {
         }
       }, [])
 
-      return <div>Hello!</div>
+      return <div className="toggableBlock">Hello!</div>
 }

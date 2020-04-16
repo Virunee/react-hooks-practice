@@ -11,7 +11,15 @@ const App = () => {
   const {apiData, loading} = useFetch(`http://numbersapi.com/${randomCount}/trivia`)
 
 
-  return( <div className="container">
+  return( 
+  <div>
+    
+    <div className="header">
+    <h1>React Hooks practice</h1>
+    </div>
+
+  <div className="container">
+    <div className="exampleBlock">
     <h2>useState Counter example</h2>
     <p>Current count1 is: {count}</p>
     <p>Current count2 is: {count2}</p>
@@ -22,17 +30,26 @@ const App = () => {
         count: currentState.count + 1
         }))}>Click me!
     </button>
+    </div>
+
     <hr/>
+    <div className="exampleBlock">
     <h2>Form example</h2>
     <input name="email" placeholder="example@example.com" value={values.email} onChange={handleChange}/>
     <input name="password" value={values.password} type="password" onChange={handleChange}/>
+    </div>
+
     <hr/>
     
+    <div className="exampleBlock">
     <h2>useEffect example</h2>
     <button onClick={() => setShowHello(!showHello)}>Toggle</button>
-    {showHello && <Hello />}
-    <hr />
+    <div>{showHello && <Hello />}</div>
+    </div>
 
+    <hr />
+      
+    <div className="exampleBlock">
     <h2>API example</h2>
       <p>Number: {randomCount}</p>
       <p>{apiData}</p>
@@ -42,6 +59,10 @@ const App = () => {
           randomCount: Math.floor(Math.random() * 1000)
         }))}>Get a new random number fact</button>
         <p>{loading ? "Loading..." : ""}</p>
+        </div>
+
+        <hr />
+    </div>
     </div>
   )
 }
